@@ -18,6 +18,7 @@
   --accent-foreground: #ffffff;
   --border: #e3e8ef;
   --tag: #e8eef6; /* light blue-gray pills */
+  --hover: #eef2f8; /* hover background for nav items */
   --nav-bg: rgb(255 255 255 / 0.78);
   --shadow: 11 31 58; /* navy, as RGB channels for tinted shadows */
 }
@@ -38,6 +39,7 @@
   --accent-foreground: #0b1f3a;
   --border: rgb(255 255 255 / 0.14);
   --tag: rgb(255 255 255 / 0.1);
+  --hover: rgb(255 255 255 / 0.08);
   background: var(--background);
   color: var(--foreground);
 }
@@ -55,6 +57,7 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
   --color-tag: var(--tag);
+  --color-hover: var(--hover);
   --color-nav: var(--nav-bg);
   --shadow-soft: 0 1px 2px rgb(var(--shadow) / 0.04), 0 8px 24px -12px rgb(var(--shadow) / 0.12);
   --shadow-lift: 0 2px 4px rgb(var(--shadow) / 0.04), 0 24px 48px -20px rgb(var(--shadow) / 0.22);
@@ -86,7 +89,8 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Sections land below the sticky navbar when jumped to via anchors. */
+/* Sections land below the sticky navbar (h-14 = 3.5rem + 1rem breathing room)
+   when jumped to via anchors or the navbar's smooth scroll. */
 section[id] {
   scroll-margin-top: 4.5rem;
 }
