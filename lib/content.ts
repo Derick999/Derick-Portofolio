@@ -87,15 +87,30 @@ export function getNextProject(slug: string): Project {
 }
 
 /* ------------------------------------------------------------------ */
-/* Other sections (rendered in a later phase)                          */
+/* Journey and other sections                                          */
 /* ------------------------------------------------------------------ */
 
-export type JourneyItem = {
+export type JourneyChapter = {
+  /** Unique, lowercase. Used as the React key and anchor. */
+  id: string;
+  /** Short chapter name shown with its number, e.g. "Explore". */
+  label: string;
   period: string;
   title: string;
-  organization: string;
+  /** 1–2 sentences. */
   description: string;
-  placeholder?: boolean;
+  /** Short bullets, shown as pill tags. */
+  highlights: string[];
+  /** Optional image path under /public; "" for none. Shown at 4:3. */
+  image?: string;
+};
+
+export type Journey = {
+  heading: string;
+  subline: string;
+  chapters: JourneyChapter[];
+  /** Quote card shown after the last chapter. */
+  closing: { quote: string };
 };
 
 export type Recognition = {
@@ -113,6 +128,6 @@ export type SkillGroup = {
 };
 
 // `satisfies` makes TypeScript flag a JSON entry that's missing a field.
-export const journey = journeyData satisfies JourneyItem[];
+export const journey = journeyData satisfies Journey;
 export const recognition = recognitionData satisfies Recognition[];
 export const skills = skillsData satisfies SkillGroup[];

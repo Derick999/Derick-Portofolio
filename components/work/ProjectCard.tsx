@@ -15,7 +15,7 @@ export function ProjectCard({ project }: { project: Project }) {
       className="group block rounded-[1.75rem] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
     >
       <div
-        className={`relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-surface ${
+        className={`relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-background-alt ${
           project.featured ? "md:aspect-[16/9]" : ""
         }`}
       >
@@ -34,7 +34,7 @@ export function ProjectCard({ project }: { project: Project }) {
 
       <div className="mt-5 flex items-start justify-between gap-6">
         <div>
-          <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+          <h3 className="text-xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-accent sm:text-2xl">
             {project.title}
           </h3>
           <p className="mt-1.5 text-sm font-light text-muted">
@@ -45,7 +45,7 @@ export function ProjectCard({ project }: { project: Project }) {
         {/* Arrow slides in on hover; always visible on touch screens. */}
         <span
           aria-hidden
-          className="mt-1 flex size-10 shrink-0 items-center justify-center rounded-full bg-foreground text-background transition-all duration-500 ease-out [@media(hover:hover)]:-translate-x-2 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:translate-x-0 [@media(hover:hover)]:group-hover:opacity-100"
+          className="mt-1 flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-all duration-500 ease-out [@media(hover:hover)]:-translate-x-2 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:translate-x-0 [@media(hover:hover)]:group-hover:opacity-100"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path

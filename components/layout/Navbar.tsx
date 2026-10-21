@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { navLinks, site } from "@/lib/site";
+import { site } from "@/lib/site";
 import { Container } from "@/components/ui/Container";
+import { NavLinks } from "./NavLinks";
 
 /**
  * Sticky, minimal navbar with a translucent blurred background.
- * Server component; Link gives client-side navigation from case study pages.
+ * Server component; the links (with scroll-spy) are a small client island.
  */
 export function Navbar() {
   return (
@@ -12,24 +13,15 @@ export function Navbar() {
       <Container className="flex h-14 items-center justify-between">
         <Link
           href="/"
-          className="text-sm font-semibold tracking-tight transition-opacity hover:opacity-70"
+          className="text-sm font-semibold tracking-tight text-primary transition-colors hover:text-accent"
         >
-          {site.name}
+          {/* Short name on small phones so all four links fit. */}
+          <span className="sm:hidden">{site.name.split(" ")[0]}</span>
+          <span className="hidden sm:inline">{site.name}</span>
         </Link>
 
         <nav aria-label="Main">
-          <ul className="flex items-center gap-5 sm:gap-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-[13px] text-muted transition-colors hover:text-foreground sm:text-sm"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <NavLinks />
         </nav>
       </Container>
     </header>

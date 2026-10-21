@@ -61,7 +61,7 @@ export default async function CaseStudyPage({ params }: Props) {
       <Container>
         <Link
           href="/#work"
-          className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-foreground"
+          className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent"
         >
           <span aria-hidden>←</span> Back to work
         </Link>
@@ -95,7 +95,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       {/* Full-width cover (slightly wider than the text column). */}
       <Reveal trigger="mount" delay={0.2} className="mx-auto mt-12 max-w-7xl sm:mt-16 sm:px-8">
-        <div className="relative aspect-[4/3] overflow-hidden bg-surface sm:rounded-[2rem] md:aspect-[16/9]">
+        <div className="relative aspect-[4/3] overflow-hidden bg-background-alt sm:rounded-[2rem] md:aspect-[16/9]">
           <Image
             src={project.cover}
             alt={`Cover image for ${project.title}`}
@@ -145,7 +145,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <section aria-label="Gallery" className="space-y-6 border-t border-border pt-14 sm:space-y-10 sm:pt-20">
             {caseStudy.gallery.map((src, i) => (
               <Reveal key={src}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-surface sm:rounded-[2rem]">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-background-alt sm:rounded-[2rem]">
                   <Image
                     src={src}
                     alt={`${project.title}, gallery image ${i + 1}`}
@@ -166,7 +166,7 @@ export default async function CaseStudyPage({ params }: Props) {
         >
           <p className="text-sm text-muted">Next project</p>
           <p className="mt-3 flex items-center gap-4 text-3xl font-semibold tracking-tight sm:text-5xl">
-            <span className="transition-opacity group-hover:opacity-70">{next.title}</span>
+            <span className="transition-colors group-hover:text-accent">{next.title}</span>
             <span
               aria-hidden
               className="text-accent transition-transform duration-500 ease-out group-hover:translate-x-2"

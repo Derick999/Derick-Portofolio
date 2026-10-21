@@ -9,8 +9,19 @@ type SectionProps = {
   title: string;
   intro?: string;
   children?: React.ReactNode;
+  /**
+   * Background: "default" white, "alt" light cool gray (for alternating
+   * sections), "navy" dark feature section with light text.
+   */
+  tone?: "default" | "alt" | "navy";
   className?: string;
 };
+
+const tones = {
+  default: "bg-background",
+  alt: "bg-background-alt",
+  navy: "theme-navy",
+} as const;
 
 /**
  * Standard page section: generous vertical spacing, eyebrow + big heading,
@@ -22,13 +33,14 @@ export function Section({
   title,
   intro,
   children,
+  tone = "default",
   className = "",
 }: SectionProps) {
   return (
     <section
       id={id}
       aria-labelledby={`${id}-title`}
-      className={`py-24 sm:py-32 ${className}`}
+      className={`py-24 sm:py-32 ${tones[tone]} ${className}`}
     >
       <Container>
         <Reveal className="max-w-3xl">
