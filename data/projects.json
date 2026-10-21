@@ -1,0 +1,15 @@
+[
+  {
+    "slug": "placeholder-project-1",
+    "title": "[PLACEHOLDER] Project title",
+    "category": "Digital Marketing",
+    "year": "YYYY",
+    "summary": "[PLACEHOLDER] One-sentence description of the project and its result.",
+    "role": "[PLACEHOLDER] Your role",
+    "tags": ["placeholder"],
+    "image": "/images/projects/placeholder.jpg",
+    "link": "",
+    "featured": true,
+    "placeholder": true
+  }
+]

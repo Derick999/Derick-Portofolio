@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------
+   Design tokens
+   One palette, defined as CSS variables so light/dark mode only swaps values.
+   Change --accent here to re-theme the whole site.
+   ------------------------------------------------------------------------- */
+:root {
+  --background: #fbfbfa; /* off-white */
+  --foreground: #111113; /* near-black */
+  --muted: #6e6e73; /* secondary text */
+  --surface: #ffffff; /* cards */
+  --border: rgb(0 0 0 / 0.08);
+  --accent: #0a66ff; /* the ONE accent color */
+  --accent-foreground: #ffffff;
+  --nav-bg: rgb(251 251 250 / 0.72);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b0b0c;
+    --foreground: #f5f5f7;
+    --muted: #a1a1a6;
+    --surface: #161618;
+    --border: rgb(255 255 255 / 0.1);
+    --accent: #4d8dff;
+    --accent-foreground: #ffffff;
+    --nav-bg: rgb(11 11 12 / 0.7);
+  }
+}
+
+/* Expose tokens to Tailwind as utilities: bg-background, text-muted, etc. */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-nav: var(--nav-bg);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Sections land below the sticky navbar when jumped to via anchors. */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Respect users who ask for less motion. Framer Motion is handled in JS. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
