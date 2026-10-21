@@ -11,10 +11,13 @@ export const site = {
     "Portfolio of Derick Raditya: digital marketing, visual design, photo/video, and AI-assisted web projects.",
 } as const;
 
-/** Navbar anchors. `href` must match a section `id` on the page. */
+/**
+ * Navbar anchors. The part after "#" must match a section `id` on the home
+ * page. The leading "/" makes them work from case study pages too.
+ */
 export const navLinks = [
-  { label: "Work", href: "#work" },
-  { label: "Journey", href: "#journey" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/#work" },
+  { label: "Journey", href: "/#journey" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ] as const;

@@ -1,15 +1,106 @@
 [
   {
-    "slug": "placeholder-project-1",
-    "title": "[PLACEHOLDER] Project title",
-    "category": "Digital Marketing",
-    "year": "YYYY",
-    "summary": "[PLACEHOLDER] One-sentence description of the project and its result.",
-    "role": "[PLACEHOLDER] Your role",
-    "tags": ["placeholder"],
-    "image": "/images/projects/placeholder.jpg",
-    "link": "",
+    "slug": "derictory",
+    "title": "[PLACEHOLDER] Derictory (branding & content)",
+    "category": "design",
+    "year": "TODO",
+    "role": "TODO: isi peran di sini",
+    "summary": "TODO: isi ringkasan satu kalimat di sini.",
+    "cover": "/images/projects/derictory/cover.jpg",
+    "tools": ["TODO: isi tools"],
     "featured": true,
-    "placeholder": true
+    "placeholder": true,
+    "caseStudy": {
+      "problem": "TODO: isi masalah / tantangan di sini.",
+      "process": [
+        "TODO: isi langkah proses 1 di sini.",
+        "TODO: isi langkah proses 2 di sini.",
+        "TODO: isi langkah proses 3 di sini."
+      ],
+      "result": ["TODO: isi hasil di sini."],
+      "gallery": [
+        "/images/projects/derictory/gallery-1.jpg",
+        "/images/projects/derictory/gallery-2.jpg"
+      ],
+      "link": ""
+    }
+  },
+  {
+    "slug": "ai-web-project",
+    "title": "[PLACEHOLDER] Web project built with AI-assisted development",
+    "category": "web",
+    "year": "TODO",
+    "role": "TODO: isi peran di sini",
+    "summary": "TODO: isi ringkasan satu kalimat di sini.",
+    "cover": "/images/projects/ai-web-project/cover.jpg",
+    "tools": ["TODO: isi tools"],
+    "featured": false,
+    "placeholder": true,
+    "caseStudy": {
+      "problem": "TODO: isi masalah / tantangan di sini.",
+      "process": [
+        "TODO: isi langkah proses 1 di sini.",
+        "TODO: isi langkah proses 2 di sini.",
+        "TODO: isi langkah proses 3 di sini."
+      ],
+      "result": ["TODO: isi hasil di sini."],
+      "gallery": [
+        "/images/projects/ai-web-project/gallery-1.jpg",
+        "/images/projects/ai-web-project/gallery-2.jpg"
+      ],
+      "link": ""
+    }
+  },
+  {
+    "slug": "photo-video",
+    "title": "[PLACEHOLDER] Photo & video work",
+    "category": "photo-video",
+    "year": "TODO",
+    "role": "TODO: isi peran di sini",
+    "summary": "TODO: isi ringkasan satu kalimat di sini.",
+    "cover": "/images/projects/photo-video/cover.jpg",
+    "tools": ["TODO: isi tools"],
+    "featured": false,
+    "placeholder": true,
+    "caseStudy": {
+      "problem": "TODO: isi masalah / tantangan di sini.",
+      "process": [
+        "TODO: isi langkah proses 1 di sini.",
+        "TODO: isi langkah proses 2 di sini.",
+        "TODO: isi langkah proses 3 di sini."
+      ],
+      "result": ["TODO: isi hasil di sini."],
+      "gallery": [
+        "/images/projects/photo-video/gallery-1.jpg",
+        "/images/projects/photo-video/gallery-2.jpg"
+      ],
+      "link": ""
+    }
+  },
+  {
+    "slug": "uiux-competition",
+    "title": "[PLACEHOLDER] UI/UX competition project",
+    "category": "design",
+    "year": "TODO",
+    "role": "TODO: isi peran di sini",
+    "summary": "TODO: isi ringkasan satu kalimat di sini.",
+    "cover": "/images/projects/uiux-competition/cover.jpg",
+    "tools": ["TODO: isi tools"],
+    "featured": true,
+    "placeholder": true,
+    "caseStudy": {
+      "problem": "TODO: isi masalah / tantangan di sini.",
+      "process": [
+        "TODO: isi langkah proses 1 di sini.",
+        "TODO: isi langkah proses 2 di sini.",
+        "TODO: isi langkah proses 3 di sini."
+      ],
+      "result": ["TODO: isi hasil di sini."],
+      "gallery": [
+        "/images/projects/uiux-competition/gallery-1.jpg",
+        "/images/projects/uiux-competition/gallery-2.jpg"
+      ],
+      "link": ""
+    }
   }
 ]

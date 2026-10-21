@@ -1,9 +1,11 @@
 import { Hero } from "@/components/sections/Hero";
 import { Section } from "@/components/ui/Section";
 import { Placeholder } from "@/components/ui/Placeholder";
+import { WorkGrid } from "@/components/work/WorkGrid";
+import { projects } from "@/lib/content";
 
 /**
- * Phase 1: hero is complete; every other section is a marked placeholder
+ * Hero and Work are built; the remaining sections are marked placeholders
  * so navigation and scrolling already work. Order here = order on the page.
  */
 export default function Home() {
@@ -11,8 +13,13 @@ export default function Home() {
     <>
       <Hero />
 
-      <Section id="work" eyebrow="Work" title="Selected work.">
-        <Placeholder note="Projects will render from /data/projects.json in Phase 2." />
+      <Section
+        id="work"
+        eyebrow="Work"
+        title="Selected Work"
+        intro="Branding, visuals, web, and AI projects, each with the story behind it."
+      >
+        <WorkGrid projects={projects} />
       </Section>
 
       <Section id="journey" eyebrow="Journey" title="The journey so far.">
