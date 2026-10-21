@@ -10,7 +10,7 @@ import {
 } from "framer-motion";
 // Static import: Next reads width/height at build time (zero layout shift)
 // and generates a tiny blur placeholder automatically.
-import heroImage from "@/public/images/DRCK6857.jpg";
+import heroImage from "@/public/images/derick.jpg";
 
 /**
  * The hero portrait: fades in with a slight scale on load, then drifts
