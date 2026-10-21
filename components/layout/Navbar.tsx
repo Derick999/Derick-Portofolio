@@ -12,7 +12,7 @@ export function Navbar() {
       <Container className="flex h-14 items-center justify-between">
         <Link
           href="/"
-          className="text-sm font-semibold tracking-tight transition-opacity hover:opacity-70"
+          className="text-sm font-semibold tracking-tight text-primary transition-colors hover:text-accent"
         >
           {site.name}
         </Link>
@@ -23,7 +23,7 @@ export function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-[13px] text-muted transition-colors hover:text-foreground sm:text-sm"
+                  className="text-[13px] text-muted transition-colors hover:text-accent sm:text-sm"
                 >
                   {link.label}
                 </Link>

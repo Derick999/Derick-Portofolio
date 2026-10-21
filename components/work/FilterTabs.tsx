@@ -36,13 +36,13 @@ export function FilterTabs<T extends string>({
               aria-pressed={isActive}
               onClick={() => onChange(option.value)}
               className={`relative rounded-full px-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
-                isActive ? "text-background" : "text-muted hover:text-foreground"
+                isActive ? "text-accent-foreground" : "text-muted hover:text-primary"
               }`}
             >
               {isActive && (
                 <motion.span
                   layoutId="filter-active-pill"
-                  className="absolute inset-0 rounded-full bg-foreground"
+                  className="absolute inset-0 rounded-full bg-accent"
                   transition={{ type: "spring", stiffness: 380, damping: 32 }}
                 />
               )}

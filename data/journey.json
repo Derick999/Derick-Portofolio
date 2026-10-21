@@ -1,9 +1,64 @@
-[
-  {
-    "period": "YYYY – Present",
-    "title": "[PLACEHOLDER] Role or milestone",
-    "organization": "[PLACEHOLDER] Organization",
-    "description": "[PLACEHOLDER] What you did and what changed because of it.",
-    "placeholder": true
+{
+  "heading": "Journey",
+  "subline": "Not a straight line, but always moving forward.",
+  "chapters": [
+    {
+      "id": "explore",
+      "label": "Explore",
+      "period": "2020 – 2023",
+      "title": "Code, commerce, and a camera",
+      "description": "Tried web and mobile programming at Purwadhika, ran an e-commerce store, and started taking freelance design and photo/video work.",
+      "highlights": [
+        "Web & mobile programming · Purwadhika",
+        "Tokopedia Silver badge within months",
+        "Organic, zero ad spend",
+        "Freelance design",
+        "Freelance photo & video"
+      ],
+      "image": ""
+    },
+    {
+      "id": "start",
+      "label": "Start",
+      "period": "2023",
+      "title": "University and a first organization",
+      "description": "Entered university to study Digital Business at UBM, and joined an organization for the first time as a member of the animation sub-division, editing video for social media.",
+      "highlights": [
+        "Digital Business · UBM",
+        "First organization",
+        "Animation sub-division",
+        "Social media video editing"
+      ],
+      "image": ""
+    },
+    {
+      "id": "rise",
+      "label": "Rise",
+      "period": "2024",
+      "title": "Head of the Creative Division",
+      "description": "Became Head of the Creative Division at HIMA EXODUS, leading the team that produces the organization's social media content.",
+      "highlights": [
+        "Head of Creative Division",
+        "HIMA EXODUS",
+        "Social media content team"
+      ],
+      "image": ""
+    },
+    {
+      "id": "lead",
+      "label": "Lead",
+      "period": "2025 – now",
+      "title": "Chairperson of HIMA EXODUS",
+      "description": "Responsible for the organization's performance and for making sure the work plan runs.",
+      "highlights": [
+        "Chairperson · HIMA EXODUS",
+        "Organizational performance",
+        "Work plan execution"
+      ],
+      "image": ""
+    }
+  ],
+  "closing": {
+    "quote": "In high school I turned down the chance to be chairperson because I wasn't confident. Three years after joining my first organization, I became one."
   }
-]
+}

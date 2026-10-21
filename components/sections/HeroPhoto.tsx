@@ -35,7 +35,7 @@ export function HeroPhoto() {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.1, ease: "easeOut" }}
       // aspect-ratio reserves the exact space before the image loads.
-      className="relative mx-auto aspect-[4/5] w-full max-w-[16rem] overflow-hidden rounded-[2rem] bg-surface shadow-[0_30px_80px_-30px_rgb(0_0_0/0.35)] sm:max-w-sm md:max-w-none"
+      className="relative mx-auto aspect-[4/5] w-full max-w-[16rem] overflow-hidden rounded-[2rem] bg-background-alt shadow-[0_30px_80px_-30px_rgb(11_31_58/0.35)] sm:max-w-sm md:max-w-none"
     >
       {/* Slightly oversized so parallax never reveals the edges. */}
       <motion.div style={{ y }} className="absolute -inset-y-10 inset-x-0">

@@ -11,10 +11,12 @@ const base =
   "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] " +
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
+// Navy filled / navy outline; both turn accent blue on hover.
+
 const variants = {
-  primary: "bg-accent text-accent-foreground hover:opacity-90",
+  primary: "bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground",
   secondary:
-    "border border-border bg-surface text-foreground hover:bg-foreground hover:text-background",
+    "border border-primary text-primary hover:border-accent hover:bg-accent hover:text-accent-foreground",
 } as const;
 
 /**

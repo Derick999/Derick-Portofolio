@@ -1,49 +1,78 @@
 @import "tailwindcss";
 
 /* -------------------------------------------------------------------------
-   Design tokens
-   One palette, defined as CSS variables so light/dark mode only swaps values.
-   Change --accent here to re-theme the whole site.
+   Design tokens: the ONLY place colors are defined.
+   White + navy palette, light only. Every component uses these through
+   Tailwind utilities (bg-background, text-primary, border-border, …).
+   Contrast (WCAG AA, 4.5:1 for text) checked for every text/background pair.
    ------------------------------------------------------------------------- */
 :root {
-  --background: #fbfbfa; /* off-white */
-  --foreground: #111113; /* near-black */
-  --muted: #6e6e73; /* secondary text */
+  --background: #ffffff; /* page */
+  --background-alt: #f5f7fa; /* alternating sections */
   --surface: #ffffff; /* cards */
-  --border: rgb(0 0 0 / 0.08);
-  --accent: #0a66ff; /* the ONE accent color */
+  --primary: #0b1f3a; /* deep navy: headings, buttons, key accents (16.5:1) */
+  --primary-foreground: #ffffff; /* text on navy */
+  --foreground: #1f2a3c; /* body text (14.4:1) */
+  --muted: #5b6b82; /* secondary text (5.4:1 on white, 5.1:1 on alt) */
+  --accent: #2563eb; /* links, hover, active filter, sparingly (5.2:1) */
   --accent-foreground: #ffffff;
-  --nav-bg: rgb(251 251 250 / 0.72);
+  --border: #e3e8ef;
+  --tag: #e8eef6; /* light blue-gray pills */
+  --nav-bg: rgb(255 255 255 / 0.78);
+  --shadow: 11 31 58; /* navy, as RGB channels for tinted shadows */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0b0b0c;
-    --foreground: #f5f5f7;
-    --muted: #a1a1a6;
-    --surface: #161618;
-    --border: rgb(255 255 255 / 0.1);
-    --accent: #4d8dff;
-    --accent-foreground: #ffffff;
-    --nav-bg: rgb(11 11 12 / 0.7);
-  }
+/*
+ * Dark navy feature sections (Contact, footer). Add class "theme-navy" and
+ * the same utilities automatically switch to light-on-navy values.
+ */
+.theme-navy {
+  --background: #0b1f3a;
+  --background-alt: #0b1f3a;
+  --surface: rgb(255 255 255 / 0.05);
+  --primary: #ffffff;
+  --primary-foreground: #0b1f3a;
+  --foreground: #e6ecf5;
+  --muted: #a9b6c9; /* 8.0:1 on navy */
+  --accent: #93b4fd; /* 8.0:1 on navy */
+  --accent-foreground: #0b1f3a;
+  --border: rgb(255 255 255 / 0.14);
+  --tag: rgb(255 255 255 / 0.1);
+  background: var(--background);
+  color: var(--foreground);
 }
 
 /* Expose tokens to Tailwind as utilities: bg-background, text-muted, etc. */
 @theme inline {
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
+  --color-surface: var(--surface);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
-  --color-surface: var(--surface);
-  --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-tag: var(--tag);
   --color-nav: var(--nav-bg);
+  --shadow-soft: 0 1px 2px rgb(var(--shadow) / 0.04), 0 8px 24px -12px rgb(var(--shadow) / 0.12);
+  --shadow-lift: 0 2px 4px rgb(var(--shadow) / 0.04), 0 24px 48px -20px rgb(var(--shadow) / 0.22);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Headings are navy by default; utilities still override per element. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--primary);
+  }
+}
+
 html {
-  color-scheme: light dark;
+  color-scheme: light;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
