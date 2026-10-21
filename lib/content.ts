@@ -7,6 +7,7 @@ import projectsData from "@/data/projects.json";
 import journeyData from "@/data/journey.json";
 import recognitionData from "@/data/recognition.json";
 import skillsData from "@/data/skills.json";
+import credentialsData from "@/data/credentials.json";
 
 /* ------------------------------------------------------------------ */
 /* Projects                                                            */
@@ -127,7 +128,17 @@ export type SkillGroup = {
   placeholder?: boolean;
 };
 
+export type Credential = {
+  name: string;
+  /** "TODO" until known. */
+  issuer: string;
+  year: string;
+  /** Verification / certificate link; "" hides the link icon. */
+  url?: string;
+};
+
 // `satisfies` makes TypeScript flag a JSON entry that's missing a field.
 export const journey = journeyData satisfies Journey;
 export const recognition = recognitionData satisfies Recognition[];
 export const skills = skillsData satisfies SkillGroup[];
+export const credentials = credentialsData satisfies Credential[];

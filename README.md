@@ -25,7 +25,10 @@ The frame crops to 4:5 with `object-cover`. To change the shape, edit `aspect-[4
 
 | What | Where |
 | --- | --- |
-| Name, tagline, subline, nav links | `lib/site.ts` |
+| Name, role, hero headline/subline/proof row/buttons | `data/site.json` |
+| Nav links | `lib/site.ts` |
+| Credentials (Skills section) | `data/credentials.json`: `name`, `issuer`, `year`, optional `url` (adds a link icon) |
+| CV download | replace `public/cv.pdf` (currently a placeholder); path set by `hero.cvPath` in `data/site.json` |
 | Projects, Journey (see below) / Recognition / Skills | `data/*.json` (types in `lib/content.ts`) |
 | Colors (whole palette) | `app/globals.css` (`:root` tokens; `.theme-navy` for dark sections) |
 
@@ -102,7 +105,8 @@ components/
   sections/     Hero, HeroPhoto
   work/         WorkGrid, FilterTabs, ProjectCard, CaseStudySection
   journey/      JourneyTimeline, JourneyChapter
-  ui/           Section, Reveal, Button, Container, Placeholder
+  skills/       CredentialList
+  ui/           Section, Reveal, WordReveal, Button, Container, Placeholder
 data/           JSON content
 lib/            site.ts (identity + nav), content.ts (typed JSON access)
 public/images/  hero.jpg, projects/<slug>/…

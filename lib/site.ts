@@ -1,15 +1,11 @@
 /**
- * Site-wide constants: identity copy and navigation.
- * Section content (projects, journey, …) lives in /data/*.json instead.
+ * Site-wide identity copy (name, role, hero text, proof points) lives in
+ * /data/site.json so it can be edited without touching components.
+ * Section content (projects, journey, …) lives in the other /data/*.json files.
  */
-export const site = {
-  name: "Derick Raditya",
-  tagline:
-    "Digital marketer who builds it himself: strategy, visuals, web, and AI.",
-  subline: "Digital Business Student at UBM · Chairperson of HIMA EXODUS",
-  description:
-    "Portfolio of Derick Raditya: digital marketing, visual design, photo/video, and AI-assisted web projects.",
-} as const;
+import siteData from "@/data/site.json";
+
+export const site = siteData;
 
 /**
  * Navbar anchors. The part after "#" must match a section `id` on the home

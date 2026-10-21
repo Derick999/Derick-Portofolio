@@ -3,7 +3,8 @@ import { Section } from "@/components/ui/Section";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { WorkGrid } from "@/components/work/WorkGrid";
 import { JourneyTimeline } from "@/components/journey/JourneyTimeline";
-import { journey, projects } from "@/lib/content";
+import { CredentialList } from "@/components/skills/CredentialList";
+import { credentials, journey, projects } from "@/lib/content";
 
 /**
  * Hero, Work and Journey are built; the remaining sections are marked
@@ -44,6 +45,13 @@ export default function Home() {
 
       <Section id="skills" eyebrow="Skills" title="What I work with.">
         <Placeholder note="Skills will render from /data/skills.json in Phase 2." />
+
+        <div className="mt-20">
+          <h3 className="text-sm font-medium text-accent">Credentials</h3>
+          <div className="mt-5">
+            <CredentialList credentials={credentials} />
+          </div>
+        </div>
       </Section>
 
       <Section id="lab" tone="alt" eyebrow="Lab" title="Lab.">

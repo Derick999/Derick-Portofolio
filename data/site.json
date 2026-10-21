@@ -1,0 +1,18 @@
+{
+  "name": "Derick Raditya",
+  "description": "Portfolio of Derick Raditya: digital marketing, visual design, photo/video, and web projects.",
+  "role": "Former Chairperson, HIMA EXODUS",
+  "hero": {
+    "headline": ["Not a straight line.", "Always forward."],
+    "subline": "I'm Derick, a digital marketer who tells stories through design, photo, and web.",
+    "proof": [
+      "Former Chairperson, HIMA EXODUS",
+      "Tokopedia Silver Badge, zero ad-spend",
+      "Project Management Champion, Alfamart"
+    ],
+    "primaryCta": "See my work",
+    "secondaryCta": "Let's talk",
+    "cvLabel": "Download CV",
+    "cvPath": "/cv.pdf"
+  }
+}
