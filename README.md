@@ -19,11 +19,12 @@ The hero shows a cutout portrait (person on a transparent background) in front o
 1. Remove the background from a photo of yourself (e.g. remove.bg, Canva, Photoshop) and export a **PNG with transparency**.
    Crop it tight around you: head near the top edge, shoulders/body touching the bottom edge. Portrait ratio around 4:5,
    at least 1200 px tall, ideally under 1 MB.
-2. Save it as `public/images/derick-cutout.png` (the path is `hero.portrait` in `data/site.json`).
+2. Save it in `public/images/` and point `hero.portrait` in `data/site.json` at it (currently `/images/derickcutoutv2.png`).
 3. Restart `npm run dev`. Until the file exists, a grey placeholder silhouette is shown.
 
 The image is fitted into a fixed 4:5 box anchored to the bottom of the hero (`object-contain object-bottom`),
-so nothing shifts while it loads. All hero text (intro line, headline, subline, proof lines, button labels, CV path)
+so nothing shifts while it loads. The bottom edge is a hard crop that sits exactly on the bottom of the hero, directly on the
+navy Selected Work section, so export the PNG with your body cut flush at the bottom edge. All hero text (intro line, headline, subline, proof lines, button labels, CV path)
 is in `data/site.json`.
 
 ## Edit content
@@ -80,15 +81,19 @@ The four seeded projects are placeholders (`"placeholder": true`, `TODO:` text, 
 
 ## Edit the Journey
 
-Everything lives in `data/journey.json`: no component changes needed.
+Everything lives in `data/journey.json`: no component changes needed. The Journey is a swipeable stack of paper cards
+(drag or swipe the top card, arrow buttons, ← → keys, or the dots; it stops at both ends).
 
 - `heading` / `subline`: the section title and line under it.
-- `chapters`: one object per chapter, shown top to bottom in file order, alternating sides on desktop.
+- `chapters`: one object per chapter, in order (first = top of the stack). Numbers ("01 Explore") come from the position.
   - `id`: unique, lowercase (e.g. `"explore"`).
-  - `label` + `period`: shown as "01 Explore · 2020 – 2023". The number comes from the position.
-  - `title`, `description` (1–2 sentences), `highlights` (short pills).
-  - `image`: optional. Put a 4:3 image in `public/images/journey/` and set e.g. `"/images/journey/explore.jpg"`; leave `""` for none. On desktop it sits on the other side of the line.
-- `closing.quote`: the quote card after the last chapter.
+  - `label`, `period`, `title`, `description` (1–2 sentences), `highlights` (short pills on the card).
+  - The big faint year on the left is the first year in `period` ("2020 – 2023" shows 2020).
+  - `image`: optional. Put a 4:3 image in `public/images/journey/` and set e.g. `"/images/journey/explore.jpg"`; leave `""` for none.
+    On desktop it appears to the right of the stack; on phones it sits at the top of the card.
+  - `first`: optional one-line quote, e.g. `"My first organization."`. Shown on the right of the stack when the chapter
+    has no image (on phones, under the chapter label). Chapters other than "Start" still say `TODO`: replace or delete them.
+- `closing.quote`: the quote card shown below the stack.
 
 ## Colors
 
@@ -109,7 +114,7 @@ components/
   layout/       Navbar, Footer, MotionProvider (reduced-motion handling)
   sections/     Hero (server: checks for the cutout), HeroScene (layers + animation)
   work/         WorkGrid, FilterTabs, ProjectCard, CaseStudySection
-  journey/      JourneyTimeline, JourneyChapter
+  journey/      JourneyStack, JourneyCard
   skills/       CredentialList
   ui/           Section, Reveal, WordReveal, Button, BracketButton, Container, Placeholder
 data/           JSON content

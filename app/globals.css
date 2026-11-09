@@ -6,7 +6,8 @@
    Tailwind utilities (bg-background, text-primary, border-border, …).
    Contrast (WCAG AA, 4.5:1 for text) checked for every text/background pair.
    ------------------------------------------------------------------------- */
-:root {
+:root,
+.theme-light {
   --background: #ffffff; /* page */
   --background-alt: #f5f7fa; /* alternating sections */
   --surface: #ffffff; /* cards */
@@ -16,6 +17,8 @@
   --muted: #5b6b82; /* secondary text (5.4:1 on white, 5.1:1 on alt) */
   --accent: #2563eb; /* links, hover, active filter, sparingly (5.2:1) */
   --accent-foreground: #ffffff;
+  --accent-solid: #2563eb; /* filled blue pills; same blue on light and navy */
+  --accent-solid-foreground: #ffffff; /* white on #2563eb = 5.2:1 */
   --border: #e3e8ef;
   --tag: #e8eef6; /* light blue-gray pills */
   --hover: #eef2f8; /* hover background for nav items */
@@ -24,7 +27,16 @@
 }
 
 /*
- * Dark navy feature sections (Contact, footer). Add class "theme-navy" and
+ * "theme-light" (shares the :root values above) re-lights a block that sits
+ * inside a navy section, e.g. the project cards in Selected Work.
+ */
+.theme-light {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/*
+ * Dark navy feature sections (Work, Contact, footer). Add class "theme-navy" and
  * the same utilities automatically switch to light-on-navy values.
  */
 .theme-navy {
@@ -37,6 +49,8 @@
   --muted: #a9b6c9; /* 8.0:1 on navy */
   --accent: #93b4fd; /* 8.0:1 on navy */
   --accent-foreground: #0b1f3a;
+  --accent-solid: #2563eb;
+  --accent-solid-foreground: #ffffff;
   --border: rgb(255 255 255 / 0.14);
   --tag: rgb(255 255 255 / 0.1);
   --hover: rgb(255 255 255 / 0.08);
@@ -55,6 +69,8 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-solid: var(--accent-solid);
+  --color-accent-solid-foreground: var(--accent-solid-foreground);
   --color-border: var(--border);
   --color-tag: var(--tag);
   --color-hover: var(--hover);

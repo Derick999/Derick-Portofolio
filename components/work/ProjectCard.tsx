@@ -3,7 +3,8 @@ import Link from "next/link";
 import { categories, type Project } from "@/lib/content";
 
 /**
- * Whole card is one link to the case study.
+ * Whole card is one link to the case study. It is a light panel
+ * ("theme-light") so it stands out on the navy Selected Work section.
  * Hover: cover slowly zooms in and an arrow fades in. Cover has a fixed
  * aspect ratio (4:3; featured cards go 16:9 on desktop so they fit the
  * screen) so the grid never shifts while images load.
@@ -12,10 +13,10 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="group block rounded-[1.75rem] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+      className="theme-light group block rounded-[2rem] p-3 shadow-soft transition-[translate,box-shadow] duration-500 ease-out hover:-translate-y-1 hover:shadow-lift focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-solid"
     >
       <div
-        className={`relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-background-alt ${
+        className={`relative aspect-[4/3] overflow-hidden rounded-[1.4rem] bg-background-alt ${
           project.featured ? "md:aspect-[16/9]" : ""
         }`}
       >
@@ -32,7 +33,7 @@ export function ProjectCard({ project }: { project: Project }) {
         />
       </div>
 
-      <div className="mt-5 flex items-start justify-between gap-6">
+      <div className="flex items-start justify-between gap-6 px-3 pt-5 pb-3">
         <div>
           <h3 className="text-xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-accent sm:text-2xl">
             {project.title}

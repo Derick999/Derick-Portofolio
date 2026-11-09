@@ -55,17 +55,13 @@ export function HeroScene({ name, hero, hasPortrait }: HeroSceneProps) {
       ref={ref}
       id="top"
       aria-label="Introduction"
-      className="relative overflow-hidden bg-background pt-8 pb-14 lg:h-[calc(100dvh-3.5rem)] lg:min-h-[44rem] lg:p-0"
+      className="relative flex flex-col overflow-hidden bg-background pt-8 lg:block lg:h-[calc(100dvh-3.5rem)] lg:min-h-[44rem] lg:p-0"
     >
-      {/* Thin guide lines on the container edges, full height. */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="h-full border-x border-border" />
-      </div>
 
       {/* z-0 · Giant name */}
       <motion.div
         style={{ y: nameY }}
-        className="relative z-0 text-center lg:absolute lg:inset-x-0 lg:top-[9%]"
+        className="relative z-0 text-center lg:absolute lg:inset-x-0 lg:top-[13%]"
       >
         <p className="text-base font-light text-muted sm:text-lg">
           <WordReveal text={hero.intro} delay={0.05} stagger={0.06} />
@@ -89,12 +85,15 @@ export function HeroScene({ name, hero, hasPortrait }: HeroSceneProps) {
         </h1>
       </motion.div>
 
-      {/* z-10 · Cutout portrait: fixed 4:5 box, image anchored to its bottom. */}
+      {/* z-10 · Cutout portrait: fixed 4:5 box, image anchored to its bottom.
+          Hard crop: the bottom edge sits exactly on the bottom of the hero
+          (no padding below, no fade), so it "stands" on the next section.
+          On phones it comes last (order-last) so that is true there too. */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: "easeOut", delay: afterName - 0.25 }}
-        className="relative z-10 mx-auto -mt-[10vw] aspect-[4/5] w-[72vw] max-w-[22rem] lg:absolute lg:bottom-0 lg:left-1/2 lg:mt-0 lg:h-[78%] lg:w-auto lg:max-w-none lg:-translate-x-1/2"
+        className="relative z-10 order-last mx-auto mt-2 aspect-[4/5] w-[78vw] max-w-[24rem] lg:absolute lg:bottom-0 lg:left-1/2 lg:mt-0 lg:h-[92%] lg:w-auto lg:max-w-none lg:-translate-x-1/2"
       >
         {hasPortrait ? (
           <Image
@@ -102,14 +101,12 @@ export function HeroScene({ name, hero, hasPortrait }: HeroSceneProps) {
             alt={`Portrait of ${name}`}
             fill
             priority
-            sizes="(min-width: 1024px) 40vw, 72vw"
+            sizes="(min-width: 1024px) 45vw, 78vw"
             className="object-contain object-bottom"
           />
         ) : (
           <PortraitPlaceholder />
         )}
-        {/* Soft fade into the white below the hero. */}
-        <div aria-hidden className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background to-transparent" />
       </motion.div>
 
       {/* z-20 · Copy. Mobile: centered flow. Desktop: bottom-left / bottom-right. */}
@@ -150,7 +147,7 @@ export function HeroScene({ name, hero, hasPortrait }: HeroSceneProps) {
         <Reveal
           trigger="mount"
           delay={afterName + 0.1}
-          className="mt-8 lg:absolute lg:right-14 lg:bottom-14 lg:mt-0"
+          className="mt-8 lg:absolute lg:top-[61%] lg:right-14 lg:mt-0"
         >
           <ul
             aria-label="Highlights"

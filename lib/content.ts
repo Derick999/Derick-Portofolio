@@ -104,6 +104,9 @@ export type JourneyChapter = {
   highlights: string[];
   /** Optional image path under /public; "" for none. Shown at 4:3. */
   image?: string;
+  /** Optional one-line "first" quote, e.g. "My first organization.".
+   *  Shown instead of the image when there is no image. */
+  first?: string;
 };
 
 export type Journey = {

@@ -2,15 +2,16 @@ import { Hero } from "@/components/sections/Hero";
 import { Section } from "@/components/ui/Section";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { WorkGrid } from "@/components/work/WorkGrid";
-import { JourneyTimeline } from "@/components/journey/JourneyTimeline";
+import { JourneyStack } from "@/components/journey/JourneyStack";
 import { CredentialList } from "@/components/skills/CredentialList";
 import { credentials, journey, projects } from "@/lib/content";
 
 /**
  * Hero, Work and Journey are built; the remaining sections are marked
  * placeholders so navigation and scrolling already work.
- * Order here = order on the page. Tones alternate white / light gray,
- * with Contact (and the footer) as the dark navy feature section.
+ * Order here = order on the page. Work sits directly under the hero on navy
+ * (the cropped portrait "stands" on it); Journey and the rest are white /
+ * light gray; Contact (and the footer) are navy again.
  */
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
 
       <Section
         id="work"
+        tone="navy"
         eyebrow="Work"
         title="Selected Work"
         intro="Branding, visuals, web, and AI projects, each with the story behind it."
@@ -32,7 +34,7 @@ export default function Home() {
         title={journey.heading}
         intro={journey.subline}
       >
-        <JourneyTimeline journey={journey} />
+        <JourneyStack journey={journey} />
       </Section>
 
       <Section id="about" eyebrow="About" title="About me.">
