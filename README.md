@@ -12,20 +12,25 @@ npm run dev                  # http://localhost:3000
 npm run build && npm start   # production build; use this for Lighthouse checks
 ```
 
-## Replace the hero photo
+## Add the hero cutout portrait
 
-1. Export your photo as **`hero.jpg`**. Portrait works best (4:5, e.g. 1200×1500 px or larger). Keep it under ~500 KB.
-2. Overwrite `public/images/hero.jpg` with it, keeping the same name.
-3. Restart `npm run dev`. The width, height and blur placeholder are generated automatically.
+The hero shows a cutout portrait (person on a transparent background) in front of the giant name.
 
-The frame crops to 4:5 with `object-cover`. To change the shape, edit `aspect-[4/5]` and
-`rounded-[2rem]` in `components/sections/HeroPhoto.tsx`. For a circle, use `aspect-square` with `rounded-full`.
+1. Remove the background from a photo of yourself (e.g. remove.bg, Canva, Photoshop) and export a **PNG with transparency**.
+   Crop it tight around you: head near the top edge, shoulders/body touching the bottom edge. Portrait ratio around 4:5,
+   at least 1200 px tall, ideally under 1 MB.
+2. Save it as `public/images/derick-cutout.png` (the path is `hero.portrait` in `data/site.json`).
+3. Restart `npm run dev`. Until the file exists, a grey placeholder silhouette is shown.
+
+The image is fitted into a fixed 4:5 box anchored to the bottom of the hero (`object-contain object-bottom`),
+so nothing shifts while it loads. All hero text (intro line, headline, subline, proof lines, button labels, CV path)
+is in `data/site.json`.
 
 ## Edit content
 
 | What | Where |
 | --- | --- |
-| Name, role, hero headline/subline/proof row/buttons | `data/site.json` |
+| Name, role, hero intro/headline/subline/proof lines/buttons/portrait path | `data/site.json` |
 | Nav links | `lib/site.ts` |
 | Credentials (Skills section) | `data/credentials.json`: `name`, `issuer`, `year`, optional `url` (adds a link icon) |
 | CV download | replace `public/cv.pdf` (currently a placeholder); path set by `hero.cvPath` in `data/site.json` |
@@ -102,11 +107,11 @@ app/            layout.tsx (font, navbar, footer), page.tsx (section order), glo
   work/[slug]/  case study page (static, one per project)
 components/
   layout/       Navbar, Footer, MotionProvider (reduced-motion handling)
-  sections/     Hero, HeroPhoto
+  sections/     Hero (server: checks for the cutout), HeroScene (layers + animation)
   work/         WorkGrid, FilterTabs, ProjectCard, CaseStudySection
   journey/      JourneyTimeline, JourneyChapter
   skills/       CredentialList
-  ui/           Section, Reveal, WordReveal, Button, Container, Placeholder
+  ui/           Section, Reveal, WordReveal, Button, BracketButton, Container, Placeholder
 data/           JSON content
 lib/            site.ts (identity + nav), content.ts (typed JSON access)
 public/images/  hero.jpg, projects/<slug>/…
